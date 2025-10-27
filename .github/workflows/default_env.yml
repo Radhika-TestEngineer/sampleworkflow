@@ -8,7 +8,10 @@ jobs:
     steps:
       - name: Testing secrets
         run: |
-          echo "$DEVOPS"
+          if ["$DEVOPS" == "vinnasoft"]
+          then
+            echo "Got Our Secret"
+          fi  
         env: 
           DEVOPS: "${{secrets.SECRETS_TOKEN}}"
       - name: Environment variables
